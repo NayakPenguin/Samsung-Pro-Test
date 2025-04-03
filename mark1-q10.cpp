@@ -30,7 +30,17 @@ int main(){
     
     memset(dp, -1, sizeof(dp));
     
-    int ans = m + helper(1, 0, v);
+    int firstnonzero = -1;
+    for(int i = 0; i<n; i++) if(v[i] != 0) {
+        firstnonzero = i;
+        break;
+    }
+    
+    
+    int ans = 0;
+    if(firstnonzero != -1) {
+        ans = m + helper(firstnonzero + 1, firstnonzero, v);
+    }
     
     cout<<ans<<endl;
     
