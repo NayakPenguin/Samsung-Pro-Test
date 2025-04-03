@@ -9,12 +9,11 @@ int minGarbageCost(vector<int>& garbage, int m) {
 
     for (int i = 1; i < n; i++) {
         for (int j = 0; j < i; j++) {  
-            
             if (dp[i - 1][j] == INT_MAX) continue;  
             
             dp[i][j] = min(dp[i][j], dp[i - 1][j] + (i - j) * garbage[i]);
 
-            dp[i][i] = min(dp[i][i], dp[i - 1][j] + m);
+            dp[i][j] = min(dp[i][i], dp[i - 1][j] + m);
         }
     }
 
